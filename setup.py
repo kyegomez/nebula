@@ -9,7 +9,7 @@ setup(
   author = 'Agora',
   author_email = 'kye@apac.ai',
   long_description_content_type = 'text/markdown',
-  url = 'https://github.com/kyegomez/EXA/tree/master/exa/modular_components/lossFunctions/nebula',
+  url = 'https://github.com/kyegomez/nebula',
   keywords = [
     'artificial intelligence',
     'deep learning',
