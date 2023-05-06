@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-  name = 'nebula_loss',
+  name = 'nebula-loss',
   packages = find_packages(exclude=[]),
   version = '0.3.0',
   license='MIT',
