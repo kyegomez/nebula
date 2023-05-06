@@ -13,15 +13,18 @@ on:
   release:
     types: [published]
 
+runs:
+  using: 'node16'
+
 jobs:
   deploy:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2.4.4 # updated to the latest version
+    - uses: actions/checkout@v2
     - name: Set up Python
-      uses: actions/setup-python@v2.3.2 # updated to the latest version
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
     - name: Install dependencies
