@@ -21,7 +21,7 @@ Welcome to the **Nebula Loss Function**! A versatile and adaptive loss function 
 
 ### Installation
 ```sh
-pip install nebula
+pip install nebula-loss'
 ```
 
 ### Usage
@@ -29,6 +29,7 @@ pip install nebula
 ```python
 import torch
 from nebula_loss import Nebula
+from nebula_loss.nebulav3 import Nebula
 
 # Instantiate the Nebula loss function
 loss_function = Nebula()
