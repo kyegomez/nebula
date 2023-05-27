@@ -100,8 +100,8 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 import torch.nn as nn
-from nebulav2 import Nebula
-from nebulav2 import one_hot_encoding
+from nebula.nebulav2 import Nebula
+from nebula.nebulav2 import one_hot_encoding
 import torch.nn.functional as F
 
 
