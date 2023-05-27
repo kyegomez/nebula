@@ -28,8 +28,7 @@ pip install nebula-loss'
 
 ```python
 import torch
-from nebula_loss import Nebula
-from nebula_loss.nebulav3 import Nebula
+from nebula import Nebula
 
 # Instantiate the Nebula loss function
 loss_function = Nebula()
