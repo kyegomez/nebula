@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
   name = 'nebula-loss',
   packages = find_packages(exclude=[]),
-  version = '0.3.3',
+  version = '0.3.4',
   license='MIT',
   description = '1 Loss Function to rule them all!',
   author = 'Agora',
