@@ -65,6 +65,9 @@ The Nebula loss function supports a variety of optimization techniques, such as:
 
 3. Create an entirely polymorphic version that has no shape whatsoever and fills up the data, task, model environment at runtime.
 
+4. Create an implemented tree of thoughts search to determine loss function
+
+
 ## Contributing 🤝
 
 We welcome contributions! If you'd like to contribute, feel free to open a pull request with your changes or additions. For major changes, please open an issue first to discuss your proposed changes.
