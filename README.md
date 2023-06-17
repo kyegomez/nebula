@@ -73,15 +73,57 @@ The Nebula loss function supports a variety of optimization techniques, such as:
 9. Model selection techniques (requires a model and a dataset)
 10. Utilizing user input or metadata
 
-# Roadmap
-1. Add in 5 more detections to effectively determine which loss function to utilize
+## Nebula's Roadmap 🗺️
 
-2. Add in 5 more loss functions that the detections map to.
+The following roadmap aims to outline our path towards creating a highly reliable, dynamic meta loss function capable of determining the appropriate loss function for any given task environment.
 
-3. Create an entirely polymorphic version that has no shape whatsoever and fills up the data, task, model environment at runtime.
+### Phase 1: Improve Detection Mechanisms 🕵️
 
-4. Create an implemented tree of thoughts search to determine loss function
+- **Task 1.1**: Enhance the range detection mechanism. This will involve refining our existing logic for detecting the range of values in `y_true` and `y_pred`, as this information is crucial in deciding between regression and classification-based loss functions.
 
+- **Task 1.2**: Refine the distribution detection mechanism. We will investigate advanced statistical methods for accurately determining the distribution of values in `y_true` and `y_pred`. This could involve techniques such as goodness-of-fit tests or non-parametric methods.
+
+- **Task 1.3**: Improve dimension analysis. The dimensions of `y_pred` can often indicate the type of task at hand. We aim to develop a more sophisticated method of interpreting these dimensions to aid in loss function selection.
+
+- **Task 1.4**: Incorporate sparsity detection. For certain tasks, the sparsity of `y_true` can influence the choice of loss function. We plan to include a mechanism that accurately determines the level of sparsity in the target data.
+
+- **Task 1.5**: Improve correlation analysis. By analyzing the correlation between `y_pred` and `y_true`, we can make more informed decisions about which loss function to use. We will seek to expand our correlation analysis techniques for this purpose.
+
+### Phase 2: Expand Loss Function Catalog 📘
+
+- **Task 2.1 - 2.5**: Add five more loss functions to our catalog. Our aim is to provide a diverse selection of loss functions for the Nebula loss function to choose from, allowing it to handle a wider variety of tasks. Each new addition will involve researching suitable loss functions, implementing them in PyTorch, and integrating them into our current selection mechanism.
+
+### Phase 3: Develop Polymorphic Version 🦠
+
+- **Task 3.1**: Design a polymorphic architecture. This will involve conceptualizing a flexible structure for Nebula that allows it to dynamically adapt its shape and function according to the given task, data, and model environment.
+
+- **Task 3.2**: Implement the polymorphic version. After designing the architecture, we will implement it in PyTorch. This will involve significant coding, testing, and debugging.
+
+- **Task 3.3**: Test and refine the polymorphic version. After implementing the polymorphic version, we will conduct extensive testing to ensure its robustness and reliability. We will then refine and optimize its performance based on our testing results.
+
+### Phase 4: Implement Tree of Thoughts Search 🌳
+
+- **Task 4.1**: Understand the concept of a tree of thoughts search. This will involve studying existing literature and resources on tree search algorithms and understanding how they can be applied to our use case.
+
+- **Task 4.2**: Implement a basic version of the tree of thoughts search. This will involve coding a basic version of the search algorithm and integrating it with our current system.
+
+- **Task 4.3**: Optimize and refine the tree of thoughts search. After implementing a basic version, we will work on optimizing its performance and refining its function based on the specifics of our use case.
+
+- **Task 4.4**: Test the tree of thoughts search. The final step in this phase will be to conduct extensive testing on the tree of thoughts search to ensure its performance and reliability.
+
+### Phase 5: User Input Integration and Domain Knowledge 🤲
+
+- **Task 5.1**: Design mechanisms for integrating user input. This will
+
+ involve developing methods for users to provide input on which loss function to use, thus giving users more control over the operation of Nebula.
+
+- **Task 5.2**: Implement user input integration. After designing the mechanisms, we will implement them into Nebula.
+
+- **Task 5.3**: Design mechanisms for incorporating domain knowledge. We will develop methods for Nebula to leverage external knowledge or metadata about the task, data, or model environment to make more informed decisions.
+
+- **Task 5.4**: Implement domain knowledge integration. Once these mechanisms are designed, we will implement them into Nebula.
+
+The roadmap outlined above represents a comprehensive and ambitious plan for Nebula's development. Each phase and task brings us one step closer to creating a dynamic meta loss function capable of determining the most appropriate loss function for any given task environment. However, as is the case with all development, this roadmap is subject to change and evolution as we continue to learn and grow. Thank you for your interest in Nebula and we look forward to sharing our progress with you!
 
 ## Contributing 🤝
 
