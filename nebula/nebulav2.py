@@ -77,12 +77,6 @@ class HashableTensorWrapper:
         return isinstance(other, HashableTensorWrapper) and self.tensor_shape == other.tensor_shape and self.tensor_dtype == other.tensor_dtype
 
 
-
-#detector helper function
-# def is_multi_label_classification(y_true: torch.Tensor):
-#     return y_true.shape[1] > 1 and y_true.dtype == torch.float
-
-#v2
 def is_multi_label_classification(y_true: torch.Tensor) -> bool:
     return len(y_true.shape) > 1 and y_true.shape[1] > 1 and y_true.dtype == torch.float
 
@@ -95,27 +89,6 @@ def are_probability_distributions(y_pred, y_true):
 
 def are_log_probabilities(y_pred):
     return torch.all(y_pred <= 0)
-
-
-#generate unique key for a tensor
-#v1
-# def generate_tensor_key(tensor):
-#     return (tuple(tensor.shape), str(tensor.dtype))
-
-#v2 
-# def generate_tensor_key(tensor):
-    # shape_tuple = ()
-    # for dim in tensor.shape:
-    #     shape_tuple += (dim.item(),)
-    # return (shape_tuple, str(tensor.dtype))
-
-
-#v3
-# def generate_tensor_key(tensor):
-#     shape_tuple = ()
-#     for dim in tensor.shape:
-#         shape_tuple += (dim,)
-#     return (shape_tuple, str(tensor.dtype))
 
 
 #v4 
@@ -240,19 +213,8 @@ class Nebula(LossFunction):
             self.loss_function = CrossEntropyLoss()
         else:
             self.loss_function = MSELoss()
-
-
         
-
-        
-    # @torch.jit.script #optimization jit 
     def compute_loss(self, y_pred, y_true):
-        #v2
-        # tensor_key = HashableTensorWrapper(y_true)
-        # if tensor_key not in self.loss_function_cache:
-        #     self.determine_loss_function(y_pred, y_true)
-        # return self.loss_function_cache[tensor_key](y_pred, y_true)
-    
 
 
         # V1
@@ -263,21 +225,3 @@ class Nebula(LossFunction):
         
         cached_loss_function = self.loss_function_cache[dataset_id]
         return cached_loss_function.compute_loss(y_pred, y_true)
-
-        #v3
-        # tensor_key = generate_tensor_key(y_true)
-        # if tensor_key not in self.loss_function_cache:
-        #     self.determine_loss_function(y_pred, y_true)
-        # return self.loss_function_cache[tensor_key](y_pred, y_true)
-    
-    
-
-#move tensors nd model to gpu if available
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# y_pred, y_true = y_pred.to(device), y_true.to(device)
-
-
-# # #example usage with the pytorch autograd profiler
-# with torch.autograd.profiler.profile() as prof:
-#     loss = Nebula.compute_loss(y_pred, y_true)
-# print(prof.key_average().table())
