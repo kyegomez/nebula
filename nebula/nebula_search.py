@@ -14,7 +14,7 @@ class Net(nn.Module):
         return torch.sigmoid(self.fc2(x))
     
 
-class Nebula:
+class NebulaSearch:
     def __init__(self, model, loss_functions, num_iterations, lr):
         self.model = model
         self.loss_functions = loss_functions
@@ -63,5 +63,5 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 loss_functions = [nn.CrossEntropyLoss(), nn.BCELoss(), nn.MSELoss()]
 model = Net()
 
-nebula = Nebula(model, loss_functions, num_iterations=100, lr=0.001)
+nebula = NebulaSearch(model, loss_functions, num_iterations=100, lr=0.001)
 nebula.train(X_train, y_train)

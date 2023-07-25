@@ -3,6 +3,8 @@ import random
 import torch
 import torch.nn as nn
 import torch.optim as optim
+
+import numpy as np
 from deap import creator, base, tools, algorithms
 
 # Create the model

@@ -3,6 +3,8 @@ import torch.nn as nn
 # import torch.jit
 import numpy as np
 
+import logging
+
 class LossFunction:
     def compute_Loss(self, y_pred, y_true):
         raise NotImplemented("compute_loss method must be implemented!")
@@ -116,6 +118,12 @@ class Nebula(LossFunction):
         self.unique_values_cache = {}
         self.class_balance_cache = {}
 
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(logging.INFO)
+        handler = logging.StreamHandler()
+        handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        self.logger.addHandler()
+
     def determine_loss_function(self, y_pred, y_true):
         is_classification = None
         dataset_id = id(y_true)
@@ -197,9 +205,6 @@ class Nebula(LossFunction):
         if is_classification and are_log_probabilities(y_pred):
             self.loss_function = NLLLoss()
 
-
-
-
         # SmotthL1Loss
         if is_classification is None:
             #check range of values in y_true
@@ -210,8 +215,10 @@ class Nebula(LossFunction):
 
         # Set the loss function based on the determined problem type
         if is_classification:
+            self.logger.info("Determined problem as classification. Using CrossEntropyLoss")
             self.loss_function = CrossEntropyLoss()
         else:
+            self.logger.info("Determining loss function for this dataset")
             self.loss_function = MSELoss()
         
     def compute_loss(self, y_pred, y_true):
