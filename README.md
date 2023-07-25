@@ -14,7 +14,7 @@ Welcome to the **Nebula Loss Function**! A versatile and adaptive loss function 
 
 ### Installation
 ```sh
-pip install nebula
+pip install nebula-loss
 ```
 
 ### Usage
