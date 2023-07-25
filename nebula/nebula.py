@@ -227,6 +227,7 @@ class Nebula(LossFunction):
         # V1
         dataset_id = id(y_true)
         if dataset_id not in self.loss_function_cache:
+            self.logger.info("Determining loss function for the dataset")
             self.determine_loss_function(y_pred, y_true)
             self.loss_function_cache[dataset_id] = self.loss_function
         
