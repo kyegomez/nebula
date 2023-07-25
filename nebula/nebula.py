@@ -122,9 +122,11 @@ class Nebula(LossFunction):
         self.logger.setLevel(logging.INFO)
         handler = logging.StreamHandler()
         handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-        self.logger.addHandler()
+        self.logger.addHandler(handler)
 
     def determine_loss_function(self, y_pred, y_true):
+        self.logger.info("Determining the loss function")
+
         is_classification = None
         dataset_id = id(y_true)
 
@@ -222,8 +224,6 @@ class Nebula(LossFunction):
             self.loss_function = MSELoss()
         
     def compute_loss(self, y_pred, y_true):
-
-
         # V1
         dataset_id = id(y_true)
         if dataset_id not in self.loss_function_cache:
