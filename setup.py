@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-  name = 'nebula',
+  name = 'nebula-loss',
   packages = find_packages(exclude=[]),
-  version = '0.1.1',
+  version = '0.4.1',
   license='MIT',
   description = '1 Loss Function to rule them all!',
   author = 'Agora',
