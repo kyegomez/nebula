@@ -212,8 +212,6 @@ class Nebula(LossFunction):
             #check range of values in y_true
             if torch.min(y_true) >= 0 and torch.max(y_true) <= 1:
                 self.loss_function = SmoothL1Loss()
-        
-
 
         # Set the loss function based on the determined problem type
         if is_classification:
